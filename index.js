@@ -121,12 +121,17 @@ for(let name of degerlendirmeler){
 */
 
 
-function DegerlendirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
+function DegerlendirmeEkle(dizi, name, point, comment){
 	
+	const newComment = {};
+	newComment["isim"] = name;	
+	newComment["puan"] = point;
+	newComment["geribildirim"] = comment;
+	dizi.push(newComment);
+	return dizi;
 }
-
-
+/* DegerlendirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!');
+console.log("Hurşut'un değerlendirmesi : " , degerlendirmeler , '\n'); */
 
 /*  Görev 6: 
 	Dizideki değerlendirmelerin anahtarına(key,index) bağlı olarak bir değerlendirme döndüren bir fonksiyon yazın
@@ -136,15 +141,16 @@ function DegerlendirmeEkle(/*Kodlar buraya */){
 	2. Dizinin kullanılmak istenen indeksini ikinci parametre olarak alacak
 	3. Fonksiyon şu stringi döndürmeli: "{isim} isimli kişi {puan} puan verdi ve şunları yazdı: {geribildirim}"
 	Örnek: AnahtardanDegerlendirmeAl(degerlendirmeler,0) şunu döndürmeli: "Nalan isimli kişi 5 puan verdi ve şunları yazdı: Mükemmel atmosfer ve mükemmel vegan seçenekleri!"
-*/
+*/                                                                        
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function AnahtardanDegerlendirmeAl(dizi , index) {
 
+	return `${dizi[index].isim} isimli kişi ${dizi[index].puan} puan verdi ve şunları yazdı: ${dizi[index].geribildirim}`;
+	
 }
 
-
+//console.log(AnahtardanDegerlendirmeAl(degerlendirmeler,0));
 
 /*  Görev 7:  
 	Diziden en son değerlendirmeyi döndüren adı `SonDegerlendirmeyiAl` olan bir fonksiyon yazın 
@@ -159,11 +165,11 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function SonDegerlendirmeyiAl(dizi) {
+	return `${dizi[dizi.length-1].isim} isimli kişi ${dizi[dizi.length-1].puan} puan verdi ve şunları yazdı: ${dizi[dizi.length-1].geribildirim}`;
 } 
 
-
+console.log(SonDegerlendirmeyiAl(degerlendirmeler));
 
 /////////////// BONUS  GÖRVLER////////////////////
 
