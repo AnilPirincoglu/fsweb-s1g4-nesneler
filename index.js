@@ -39,8 +39,8 @@ const tost = MenuElemaniOlustur("Tost" ,40 ,"aperatif");
 const gozleme = MenuElemaniOlustur("Gözleme", 45 ,"aperatif");
 const mixPizza = MenuElemaniOlustur("Karışık Pizza", 100 ,"pizza");
 
-console.log("Oluşturulan nesneler : \n", tost , '\n' , gozleme , '\n' , mixPizza );
-
+console.log('\n' , "Oluşturulan nesneler : \n", tost , '\n' , gozleme , '\n' , mixPizza , '\n');
+                                                        
 
 /* Görev 2: 
 	Özel bir öğle yemeği yiyorsun! Öğretmen ve öğrencilere %25, diğer kişilere %10 indirim var. Aşağıdaki burger nesnesine, indirimi fiyatı otomatik olarak hesaplayan bir metot ekleyin.
@@ -59,19 +59,16 @@ const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
-	indirim:function(job){
+	indirim: function(job){
 		if(job === "öğretmen" || job === "öğrenci"){
 			return this.fiyat * 0.75;
 		}
-		else if(job === "diğer"){
+		else {
 			return this.fiyat * 0.90;
-		}
-		else{
-			console.log("İndirim uygulanamaz!!!");
-		}
+	    }
 	}
 }
-console.log(" İndirimsiz Fiyat : ", burger.fiyat , '\n' , "İndirimli Fiyat : ", burger.indirim("öğretmen") );
+//console.log(" İndirimsiz Fiyat : ", burger.fiyat , '\n' , "İndirimli Fiyat : ", burger.indirim("öğretmen") , '\n');
 
 ///////////////Değerlendirmeler (MVP)///////////////////
 const degerlendirmeler = [
@@ -90,7 +87,12 @@ const degerlendirmeler = [
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
 
-
+for(let name of degerlendirmeler){
+	if(name.isim === "Ahmet"){
+		console.log("Ahmetin yorumu : " , name.geribildirim , '\n') ;
+		break;
+	}
+}
 
 /*  Görev 4 (ototest yok):  
 	Reyna'nın geribildirimi girilmemiş! Aşağıdakileri uygulayın: (fonksiyona gerek yok) 
@@ -98,6 +100,13 @@ const degerlendirmeler = [
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
 
+for(let name of degerlendirmeler){
+	if(name.isim === "Reyna"){
+		name.geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım";
+		console.log("Reyna'nın girilmemiş yorumu : " , name.geribildirim, '\n');
+		break;
+	}
+}
 
 
 /*  Görev 5: 
@@ -172,10 +181,17 @@ function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
 	]
 */
 
-function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
+function PuanaGoreDegerlendirmeAl(dizi, not) {
+    
+	const result = [];
+	for(let yorum of dizi ){
+		if(Math.floor(yorum.not)===not){
+			result.push(yorum);
+		}
+	}
+	return result;
 }
-
+console.log(PuanaGoreDegerlendirmeAl(degerlendirmeler, 3));
 
 /*  BONUS 2:    
 	UzunDegerlendirmeleriAl fonksiyonuna aşağıdakileri uygulayın:
