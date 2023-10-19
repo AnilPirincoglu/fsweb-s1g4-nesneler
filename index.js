@@ -59,10 +59,19 @@ const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
-
+	indirim:function(job){
+		if(job === "öğretmen" || job === "öğrenci"){
+			return this.fiyat * 0.75;
+		}
+		else if(job === "diğer"){
+			return this.fiyat * 0.90;
+		}
+		else{
+			console.log("İndirim uygulanamaz!!!");
+		}
+	}
 }
-
-
+console.log(" İndirimsiz Fiyat : ", burger.fiyat , '\n' , "İndirimli Fiyat : ", burger.indirim("öğretmen") );
 
 ///////////////Değerlendirmeler (MVP)///////////////////
 const degerlendirmeler = [
