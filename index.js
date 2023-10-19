@@ -15,10 +15,14 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
+function MenuElemaniOlustur(newName, newPrice, newCategory){
+	const newProduct = new Object();
+	newProduct.isim = newName;
+	newProduct.fiyat = newPrice;
+	newProduct.kategori = newCategory;
+	
+	return newProduct;
 }
-
 
 
 /*  Görev 1b (otomatik test yok): 
@@ -31,6 +35,11 @@ function MenuElemaniOlustur(/*Kodlar buraya*/){
 	Örnek: MenuElemaniOlustur("Karışık Pizza",5,"Pizzalar") şunu döndürür: {isim:"Karışık Pizza",fiyat:5,kategori:"Pizzalar"}
 */
 
+const tost = MenuElemaniOlustur("Tost" ,40 ,"aperatif");
+const gozleme = MenuElemaniOlustur("Gözleme", 45 ,"aperatif");
+const mixPizza = MenuElemaniOlustur("Karışık Pizza", 100 ,"pizza");
+
+console.log("Oluşturulan nesneler : \n", tost , '\n' , gozleme , '\n' , mixPizza );
 
 
 /* Görev 2: 
